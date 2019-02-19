@@ -1,36 +1,15 @@
 <?php
 
 require 'functions.php';
+require 'Task.php';
 
-class Task {
-    public $description;
 
-    public $completed = false;
+$pdo = connectToDb();
 
-    public function __construct($description)
-    {   
-        $this->description = $description;
-    }
+$tasks = fetchAllTasks($pdo);
 
-    public function complete()
-    {
-        $this->completed = true;
-    }
 
-    public function isComplete()
-    {
-        return $this->completed;
-    }
-}
-
-$tasks = [
-    new Task('Go to the store'),
-    new Task('Finish my screencast'),
-    new Task('Clean my room')
-];
-
-$tasks[0]->complete();
-
-// dd($tasks);
+// var_dump($tasks[0]->foobar()); // Nếu fetch kiểu PDO::FETCH_CLASS, 'Task' thì nó là 1 instance của class Task nên xài đc method trong class Task
+// var_dump($results[0]->description); // Nếu fetch kiểu PDO::FETCH_OBJ
 
 require 'index.view.php';
