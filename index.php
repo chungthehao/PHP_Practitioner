@@ -1,15 +1,17 @@
 <?php
 
-require 'functions.php';
-require 'Task.php';
+$query = require 'bootstrap.php';
 
+$tasks = $query->selectAll('todos');
 
-$pdo = connectToDb();
+// $tasks = array_map(function ($task) {
+//     //return new Task(); //return 'foo';
 
-$tasks = fetchAllTasks($pdo);
-
-
-// var_dump($tasks[0]->foobar()); // Nếu fetch kiểu PDO::FETCH_CLASS, 'Task' thì nó là 1 instance của class Task nên xài đc method trong class Task
-// var_dump($results[0]->description); // Nếu fetch kiểu PDO::FETCH_OBJ
+//     $t = new Task();
+//     $t->description = $task->description;
+//     $t->completed = $task->completed;
+//     $t->id = $task->id;
+//     return $t;
+// }, $tasks);
 
 require 'index.view.php';
