@@ -1,15 +1,20 @@
 <?php
 
-$app = []; // biến lưu toàn thông tin trang web
+App::bind('config', require 'config.php');
 
-$app['config'] = require 'config.php';
+// App::bind('foo', 'bar');
 
-# Đứng ở góc nhìn là index.php (entry point) vì trong file đó require file này!
-// require './core/database/Connection.php';
-// require './core/database/QueryBuilder.php';
-// require './core/Router.php';
-// require './core/Request.php';
+// die(App::get('foo'));
+// die(var_dump(App::get('config')));
 
-$app['database'] =  new QueryBuilder(
-    Connection::make($app['config']['database']) // inject PDO instance (truyền vô thôi)
-);
+App::bind('database', new QueryBuilder(
+     Connection::make(App::get('config')['database']) // inject PDO instance (truyền vô thôi)
+));
+
+// $app = []; // biến lưu toàn thông tin trang web
+
+// $app['config'] = require 'config.php';
+
+// $app['database'] =  new QueryBuilder(
+//     Connection::make($app['config']['database']) // inject PDO instance (truyền vô thôi)
+// );

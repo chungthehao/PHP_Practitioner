@@ -2,7 +2,7 @@
 
 // debug_print_backtrace(); // cho biết file nào require file này.
 
-$app['database']->insert('users', [
+App::get('database')->insert('users', [
     'name'  => $_POST['name'],
 ]);
 
