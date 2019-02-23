@@ -18,3 +18,15 @@ App::bind('database', new QueryBuilder(
 // $app['database'] =  new QueryBuilder(
 //     Connection::make($app['config']['database']) // inject PDO instance (truyền vô thôi)
 // );
+
+function view($name, $data = [])
+{    
+     extract($data);
+
+     return require "./views/{$name}.view.php";
+}
+
+function redirect($path)
+{
+     header("Location: /{$path}");
+}

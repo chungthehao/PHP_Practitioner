@@ -18,4 +18,4 @@ require 'core/bootstrap.php'; // tải file config, kết nối db, lưu tất c
 $uri = Request::uri();
 $method = Request::method();
 
-require Router::load('./routes.php')->direct($uri, $method);
+Router::load('./routes.php')->direct($uri, $method);

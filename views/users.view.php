@@ -1,8 +1,7 @@
 <?php require './views/partials/head.php'; ?>
 
-    <h1>Home Page</h1>
-
-    <!-- <?php if (count($users)) : ?>
+    <h1>All Users</h1>
+    <?php if (count($users)) : ?>
         <ul>
             <?php foreach ($users as $user) : ?>
                 <li><?= $user->name ?></li>
@@ -12,9 +11,9 @@
 
     <h1>Submit Your Name</h1>
     
-    <form action="/names" method="post">
+    <form action="/users" method="post">
         <input type="text" name="name">
         <button type="submit">Submit</button>
-    </form> -->
+    </form>
 
 <?php require './views/partials/footer.php'; ?>
