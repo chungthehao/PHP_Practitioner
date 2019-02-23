@@ -3,6 +3,8 @@
 require './vendor/autoload.php'; // Chỉ cần require file này, composer sẽ autoload dùm mình các class
 require 'core/bootstrap.php'; // tải file config, kết nối db, lưu tất cả thông tin vô $app
 
+use App\Core\{Request, Router};
+
 // var_dump($app); die;
 
 # Cách 1
@@ -18,4 +20,4 @@ require 'core/bootstrap.php'; // tải file config, kết nối db, lưu tất c
 $uri = Request::uri();
 $method = Request::method();
 
-Router::load('./routes.php')->direct($uri, $method);
+Router::load('./app/routes.php')->direct($uri, $method);
