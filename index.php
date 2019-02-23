@@ -1,5 +1,6 @@
 <?php
 
+require './vendor/autoload.php'; // Chỉ cần require file này, composer sẽ autoload dùm mình các class
 require 'core/bootstrap.php'; // tải file config, kết nối db, lưu tất cả thông tin vô $app
 
 // var_dump($app); die;
